@@ -70,7 +70,7 @@
     
     <section id="connection-point" class="slide" inlist="" rel="schema:hasPart" resource="#connection-point">
         <h2 property="schema:name" class="big" style="margin-top: 20px">Abstract access to Knowledge Graphs</h2>
-        <h3>Hide the complexities of querying for app developers</h3>
+        <h3>Hide the complexities of reading and writing for app developers</h3>
         <center>
             <img src="img/computer.png" alt="Application" width="150px" style="margin-right: 20px" />
             <span style="font-size: 6em; vertical-align: baseline; position: relative; top: -40px">&harr;</span>
@@ -183,6 +183,46 @@
 		<li class="current"><a href="#index-starting">Getting started</a></li>
         <li><a href="#index-advanced">Advanced usage</a></li>
       </ul>
+    </section>
+    
+    <section id="usage-cli" class="slide" inlist="" rel="schema:hasPart" resource="#usage-cli">
+      <h2 property="schema:name">Usage on the command-line</h2>
+      <ul>
+          <li class="next">
+          	  <h3>Installing Comunica SPARQL globally</h3>
+              <pre class="indent">$ npm install -g @comunica/query-sparql</pre>
+          </li>
+          <li class="next">
+          	  <h3>Running a SELECT query</h3>
+			  <pre class="indent">$ comunica-sparql https://fragments.dbpedia.org/2016-04/en \
+    "SELECT * WHERE { ?s ?p ?o } LIMIT 100"</pre>
+          </li>
+          <li class="next">
+          	  <h3>Running a CONSTRUCT query</h3>
+          	  <pre class="indent">$ comunica-sparql https://fragments.dbpedia.org/2016-04/en \
+    "CONSTRUCT WHERE { ?s ?p ?o } LIMIT 100"</pre>
+          </li>
+      </ul>
+      <span class="next">Learn more: <a href="https://comunica.dev/docs/query/getting_started/query_cli/">https://comunica.dev/docs/query/getting_started/query_cli/</a></span>
+    </section>
+    
+    <section id="usage-app" class="slide" inlist="" rel="schema:hasPart" resource="#usage-app">
+      <h2 property="schema:name">Usage in an app</h2>
+      <ul>
+          <li class="next">
+          	  <h3>Installing Comunica SPARQL locally</h3>
+              <pre class="indent">$ npm install @comunica/query-sparql</pre>
+          </li>
+          <li class="next">
+          	  <h3>Creating a new engine</h3>
+			  <pre class="indent">const myEngine = new QueryEngine();</pre>
+          </li>
+          <li class="next">
+          	  <h3>Running a SELECT query</h3>
+          	  <pre class="indent">myEngine.queryBindings(...);</pre>
+          </li>
+      </ul>
+      <span class="next">Learn more: <a href="https://comunica.dev/docs/query/getting_started/query_app/">https://comunica.dev/docs/query/getting_started/query_app/</a></span>
     </section>
     
     <section id="index-advanced" class="slide index" inlist="" rel="schema:hasPart" resource="#index-advanced">
