@@ -233,6 +233,28 @@
       </ul>
     </section>
     
+    <section id="advanced-context" class="slide" inlist="" rel="schema:hasPart" resource="#advanced-context">
+      <h2 property="schema:name">The Context Object</h2>
+      <ul>
+          <li>
+          	  <h3>Passing additional information to the query engine</h3>
+			  <span class="indent">Sources, logger, proxy, HTTP credentials, ...</span>
+          </li>
+      </ul>
+      <pre>const bindingsStream = await myEngine.queryBindings(`...`, {
+  sources: [
+    'http://fragments.dbpedia.org/2015/en',
+    { type: 'file', value: 'https://www.rubensworks.net/' },
+    new N3Store(),
+    { type: 'sparql', value: 'https://dbpedia.org/sparql' },
+  ],
+  log: new LoggerPretty({ level: 'debug' }),
+  httpProxyHandler: new ProxyHandlerStatic('http://myproxy.org/?uri='),
+  httpAuth: 'username:password',
+});</pre>
+      <span class="next">Learn more: <a href="https://comunica.dev/docs/query/advanced/context/">https://comunica.dev/docs/query/advanced/context/</a></span>
+    </section>
+    
     <section id="index-final" class="slide index" inlist="" rel="schema:hasPart" resource="#index-final">
       <ul>
         <li><a href="#index-fundamentals">Fundamentals</a></li>
