@@ -186,7 +186,7 @@
     </section>
     
     <section id="usage-cli" class="slide" inlist="" rel="schema:hasPart" resource="#usage-cli">
-      <h2 property="schema:name">Usage on the command-line</h2>
+      <h2 property="schema:name">💻 Usage on the command-line</h2>
       <ul>
           <li class="next">
           	  <h3>Installing Comunica SPARQL globally</h3>
@@ -207,7 +207,7 @@
     </section>
     
     <section id="usage-app" class="slide" inlist="" rel="schema:hasPart" resource="#usage-app">
-      <h2 property="schema:name">Usage in an app</h2>
+      <h2 property="schema:name">💻 Usage in an app</h2>
       <ul>
           <li class="next">
           	  <h3>Installing Comunica SPARQL locally</h3>
@@ -226,7 +226,7 @@
     </section>
     
     <section id="usage-federation" class="slide" inlist="" rel="schema:hasPart" resource="#usage-federation">
-      <h2 property="schema:name">Federated querying</h2>
+      <h2 property="schema:name">💻 Federated querying</h2>
       <ul>
           <li class="next">
           	  <h3>Execute a SPARQL query over multiple sources</h3>
@@ -274,8 +274,8 @@
 			  <span class="indent">Actors, mediators, buses</span>
           </li>
           <li>
-          	  <h3>SPARQL Algebra</h3>
-			  <span class="indent">Used for query evaluation and explaining</span>
+          	  <h3>Query plan</h3>
+			  <span class="indent">Inspecting the query execution flow</span>
           </li>
           <li>
           	  <h3>Alternative configurations</h3>
@@ -323,6 +323,50 @@
       <p class="indent"><a href="https://componentsjs.readthedocs.io/en/latest/">Components.js</a>: a semantic dependency injection framework.</p>
       <p class="indent">Configuration files declare and parameterize actors, mediators and buses.</p>
       <p class="indent">Links all the building blocks together, without having to do this in the code!</p>
+    </section>
+    
+    <section id="query-plans" class="slide" inlist="" rel="schema:hasPart" resource="#query-plans">
+      <h2 property="schema:name">Query plan</h2>
+      <h3>Blueprint of how the engine executes a query</h3>
+      <ul>
+          <li>
+          	  <h3>Based on SPARQL Algebra</h3>
+              <span class="indent">Algebraic representation of SPARQL queries</span><br \>
+              <span class="indent">Easier to work with for query engines than strings</span>
+          </li>
+          <li>
+          	  <h3>Has a big impact on query performance</h3>
+			  <span class="indent">The difference between query execution in 1 ms vs 1 hour</span>
+          </li>
+          <li>
+          	  <h3>Query planning</h3>
+			  <span class="indent">The act of optimising a query's algebra</span><br \>
+              <span class="indent">Adaptive query planning: optimising at runtime</span>
+          </li>
+      </ul>
+      <span class="next">Learn more: <a href="https://comunica.dev/docs/query/getting_started/query_cli/">https://comunica.dev/docs/query/getting_started/query_cli/</a></span>
+    </section>
+    
+    <section id="query-explain" class="slide" inlist="" rel="schema:hasPart" resource="#query-explain">
+      <h2 property="schema:name">💻 Explaining query plans</h2>
+      <ul>
+          <li class="next">
+          	  <h3>How is a query being parsed to algebra</h3>
+              <pre class="indent">$ comunica-sparql https://fragments.dbpedia.org/2016-04/en \
+  -q 'SELECT * { ?s ?p ?o } LIMIT 100' --explain parsed</pre>
+          </li>
+          <li class="next">
+          	  <h3>Inspecting the logical plan</h3>
+			  <pre class="indent">$ comunica-sparql https://fragments.dbpedia.org/2016-04/en \
+  -q 'SELECT * { ?s ?p ?o } LIMIT 100' --explain logical</pre>
+          </li>
+          <li class="next">
+          	  <h3>Inspecting the physical plan</h3>
+          	  <pre class="indent">$ comunica-sparql https://fragments.dbpedia.org/2016-04/en \
+  -q 'SELECT * { ?s ?p ?o. } LIMIT 100' --explain physical</pre>
+          </li>
+      </ul>
+      <span class="next">Learn more: <a href="https://comunica.dev/docs/query/advanced/explain/">https://comunica.dev/docs/query/advanced/explain/</a></span>
     </section>
     
     <section id="index-final" class="slide index" inlist="" rel="schema:hasPart" resource="#index-final">
