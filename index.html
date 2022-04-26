@@ -70,7 +70,7 @@
     
     <section id="connection-point" class="slide" inlist="" rel="schema:hasPart" resource="#connection-point">
         <h2 property="schema:name" class="big" style="margin-top: 20px">Abstract access to Knowledge Graphs</h2>
-        <h3>Hide the complexities of querying for app developers</h3>
+        <h3>Hide the complexities of reading and writing for app developers</h3>
         <center>
             <img src="img/computer.png" alt="Application" width="150px" style="margin-right: 20px" />
             <span style="font-size: 6em; vertical-align: baseline; position: relative; top: -40px">&harr;</span>
@@ -85,7 +85,7 @@
       <ul>
         <li><a href="#index-fundamentals">Fundamentals</a></li>
 		<li><a href="#index-starting">Getting started</a></li>
-        <li><a href="#index-advanced">Advanced usage</a></li>
+        <li><a href="#index-advanced">Advanced topics</a></li>
       </ul>
     </section>
     
@@ -93,7 +93,7 @@
       <ul>
         <li class="current"><a href="#index-fundamentals">Fundamentals</a></li>
 		<li><a href="#index-starting">Getting started</a></li>
-        <li><a href="#index-advanced">Advanced usage</a></li>
+        <li><a href="#index-advanced">Advanced topics</a></li>
       </ul>
     </section>
 	
@@ -172,37 +172,268 @@
           <li>
           	  <h3>Open governance</h3>
 			  <span class="indent"><a href="https://comunica.dev/association/">Comunica Association</a> connects organisations</span><br \>
-              <span class="indent">Collectively determining roadmap and financing of development</span>
           </li>
       </ul>
+    </section>
+    
+    <section id="association" class="slide" inlist="" rel="schema:hasPart" resource="#association">
+      <h2 property="schema:name"><a href="https://comunica.dev/association/">Comunica Association</a>: a non-profit</h2>
+      <h3></h3>
+      <ul>
+          <li>
+          	  <h3>Members and sponsors</h3>
+			  <span class="indent">Financing core maintenance to advance the roadmap</span><br \>
+              <span class="indent">Members collectively determine roadmap</span><br \>
+          </li>
+          <li>
+          	  <h3>Bounties</h3>
+			  <span class="indent">Organisations can place bounties on specific issues</span><br \>
+              <span class="indent">Developers can get paid for resolving issues</span>
+          </li>
+      </ul>
+      <img src="img/association_overview.svg" alt="Bounties" width="300px" style="float: right" />
+
+      <br \>
+      <span style="font-weight: bold">&rarr; We are looking for new sponsors and developers</span><br \>
+      <span>Learn more: <a href="https://comunica.dev/association/">https://comunica.dev/association/</a></span>
     </section>
     
     <section id="index-starting" class="slide index" inlist="" rel="schema:hasPart" resource="#index-starting">
       <ul>
         <li><a href="#index-fundamentals">Fundamentals</a></li>
 		<li class="current"><a href="#index-starting">Getting started</a></li>
-        <li><a href="#index-advanced">Advanced usage</a></li>
+        <li><a href="#index-advanced">Advanced topics</a></li>
       </ul>
+    </section>
+    
+    <section id="usage-cli" class="slide" inlist="" rel="schema:hasPart" resource="#usage-cli">
+      <h2 property="schema:name">💻 Usage on the command-line</h2>
+      <ul>
+          <li class="next">
+          	  <h3>Installing Comunica SPARQL globally</h3>
+              <pre class="indent">$ npm install -g @comunica/query-sparql</pre>
+          </li>
+          <li class="next">
+          	  <h3>Running a SELECT query</h3>
+			  <pre class="indent">$ comunica-sparql https://fragments.dbpedia.org/2016-04/en \
+    "SELECT * WHERE { ?s ?p ?o } LIMIT 100"</pre>
+          </li>
+          <li class="next">
+          	  <h3>Running a CONSTRUCT query</h3>
+          	  <pre class="indent">$ comunica-sparql https://fragments.dbpedia.org/2016-04/en \
+    "CONSTRUCT WHERE { ?s ?p ?o } LIMIT 100"</pre>
+          </li>
+      </ul>
+      <span class="next">Learn more: <a href="https://comunica.dev/docs/query/getting_started/query_cli/">https://comunica.dev/docs/query/getting_started/query_cli/</a></span>
+    </section>
+    
+    <section id="usage-app" class="slide" inlist="" rel="schema:hasPart" resource="#usage-app">
+      <h2 property="schema:name">💻 Usage in an app</h2>
+      <ul>
+          <li class="next">
+          	  <h3>Installing Comunica SPARQL locally</h3>
+              <pre class="indent">$ npm install @comunica/query-sparql</pre>
+          </li>
+          <li class="next">
+          	  <h3>Creating a new engine</h3>
+			  <pre class="indent">const myEngine = new QueryEngine();</pre>
+          </li>
+          <li class="next">
+          	  <h3>Running a SELECT query</h3>
+          	  <pre class="indent">myEngine.queryBindings(...);</pre>
+          </li>
+      </ul>
+      <span class="next">Learn more: <a href="https://comunica.dev/docs/query/getting_started/query_app/">https://comunica.dev/docs/query/getting_started/query_app/</a></span>
+    </section>
+    
+    <section id="usage-federation" class="slide" inlist="" rel="schema:hasPart" resource="#usage-federation">
+      <h2 property="schema:name">💻 Federated querying</h2>
+      <ul>
+          <li class="next">
+          	  <h3>Execute a SPARQL query over multiple sources</h3>
+              <span class="indent">The sources field in the context accepts an array of sources</span>
+          </li>
+      </ul>
+      <span class="next">Learn more: <a href="https://comunica.dev/docs/query/advanced/federation/">https://comunica.dev/docs/query/advanced/federation/</a></span>
     </section>
     
     <section id="index-advanced" class="slide index" inlist="" rel="schema:hasPart" resource="#index-advanced">
       <ul>
         <li><a href="#index-fundamentals">Fundamentals</a></li>
 		<li><a href="#index-starting">Getting started</a></li>
-        <li class="current"><a href="#index-advanced">Advanced usage</a></li>
+        <li class="current"><a href="#index-advanced">Advanced topics</a></li>
       </ul>
+    </section>
+    
+    <!--<section id="advanced-context" class="slide" inlist="" rel="schema:hasPart" resource="#advanced-context">
+      <h2 property="schema:name">The Context Object</h2>
+      <ul>
+          <li>
+          	  <h3>Passing additional information to the query engine</h3>
+			  <span class="indent">Sources, logger, proxy, HTTP credentials, ...</span>
+          </li>
+      </ul>
+      <pre>const bindingsStream = await myEngine.queryBindings(`...`, {
+  sources: [
+    'http://fragments.dbpedia.org/2015/en',
+    { type: 'file', value: 'https://www.rubensworks.net/' },
+    new N3Store(),
+    { type: 'sparql', value: 'https://dbpedia.org/sparql' },
+  ],
+  log: new LoggerPretty({ level: 'debug' }),
+  httpProxyHandler: new ProxyHandlerStatic('http://myproxy.org/?uri='),
+  httpAuth: 'username:password',
+});</pre>
+      <span class="next">Learn more: <a href="https://comunica.dev/docs/query/advanced/context/">https://comunica.dev/docs/query/advanced/context/</a></span>
+    </section>-->
+        
+    <section id="advanced-overview" class="slide" inlist="" rel="schema:hasPart" resource="#advanced-overview">
+      <h2 property="schema:name">Advanced topics</h2>
+      <ul>
+          <li>
+          	  <h3>Architecture</h3>
+			  <span class="indent">Actors, mediators, buses</span>
+          </li>
+          <li>
+          	  <h3>Query plan</h3>
+			  <span class="indent">Inspecting the query execution flow</span>
+          </li>
+          <li>
+          	  <h3>Alternative configurations</h3>
+			  <span class="indent">Different ways of executing queries</span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="actor-model" class="slide" inlist="" rel="schema:hasPart" resource="#actor-model">
+      <h2 property="schema:name">Modularity using the <em>actor</em> model</h2>
+      <p class="indent">Logic is separated into different <em>actors</em></p>
+      <p class="indent">Each actor <em>independently</em> performs a <em>specific task</em>.</p>
+      <ul class="indent" style="font-style: italic">
+        <li>JSON-LD parsing actor</li>
+        <li>Turtle parsing actor</li>
+        <li>SPARQL union actor A</li>
+        <li>SPARQL union actor B</li>
+      </ul>
+    </section>
+
+    <section id="actor-mediator-bus" class="slide" inlist="" rel="schema:hasPart" resource="#actor-mediator-bus">
+      <h2 property="schema:name">Actors can be <em>combined</em> for solving more <em>complex tasks</em></h2>
+      <p class="indent">Actors are grouped in task-specific <em>buses</em>.</p>
+      <p class="indent"><em>Mediators</em> are responsible for selecting an actor to solve a certain task.</p>
+      <p class="next center">
+        <img src="img/actor-mediator-bus.svg" style="max-width:100%">
+      </p>
+    </section>
+
+    <section id="actor-mediator-bus-example" class="slide">
+      <h2 property="schema:name">Example: Parse as fast as possible</h2>
+      <p class="center">
+        <img src="img/run-test-phases.svg" style="max-width:100%">
+      </p>
+    </section>
+    
+    <section id="sparql-architecture" class="slide" inlist="" rel="schema:hasPart" resource="#sparql-architecture">
+          <h2 property="schema:name">Overview of actors and buses</h2>
+          <center><img src="img/architecture_sparql.svg" alt="SPARQL architecture" width="800px" /></center>
+          <span>Learn more: <a href="https://comunica.dev/docs/modify/advanced/architecture_sparql/">https://comunica.dev/docs/modify/advanced/architecture_sparql/</a></span>
+        </section>
+
+    <section id="modules" class="slide" inlist="" rel="schema:hasPart" resource="#modules">
+      <h2 property="schema:name">Modules are wired together through semantic configuration files</h2>
+      <p class="indent"><a href="https://componentsjs.readthedocs.io/en/latest/">Components.js</a>: a semantic dependency injection framework.</p>
+      <p class="indent">Configuration files declare and parameterize actors, mediators and buses.</p>
+      <p class="indent">Links all the building blocks together, without having to do this in the code!</p>
+    </section>
+    
+    <section id="query-plans" class="slide" inlist="" rel="schema:hasPart" resource="#query-plans">
+      <h2 property="schema:name">Query plan</h2>
+      <h3>Blueprint of how the engine executes a query</h3>
+      <ul>
+          <li>
+          	  <h3>Based on SPARQL Algebra</h3>
+              <span class="indent">Algebraic representation of SPARQL queries</span><br \>
+              <span class="indent">Easier to work with for query engines than strings</span>
+          </li>
+          <li>
+          	  <h3>Has a big impact on query performance</h3>
+			  <span class="indent">The difference between query execution in 1 ms vs 1 hour</span>
+          </li>
+          <li>
+          	  <h3>Query planning</h3>
+			  <span class="indent">The act of optimising a query's algebra</span><br \>
+              <span class="indent">Adaptive query planning: optimising at runtime</span>
+          </li>
+      </ul>
+      <span class="next">Learn more: <a href="https://comunica.dev/docs/query/getting_started/query_cli/">https://comunica.dev/docs/query/getting_started/query_cli/</a></span>
+    </section>
+    
+    <section id="query-explain" class="slide" inlist="" rel="schema:hasPart" resource="#query-explain">
+      <h2 property="schema:name">💻 Explaining query plans</h2>
+      <ul>
+          <li class="next">
+          	  <h3>How is a query being parsed to algebra</h3>
+              <pre class="indent">$ comunica-sparql https://fragments.dbpedia.org/2016-04/en \
+  -q 'SELECT * { ?s ?p ?o } LIMIT 100' --explain parsed</pre>
+          </li>
+          <li class="next">
+          	  <h3>Inspecting the logical plan</h3>
+			  <pre class="indent">$ comunica-sparql https://fragments.dbpedia.org/2016-04/en \
+  -q 'SELECT * { ?s ?p ?o } LIMIT 100' --explain logical</pre>
+          </li>
+          <li class="next">
+          	  <h3>Inspecting the physical plan</h3>
+          	  <pre class="indent">$ comunica-sparql https://fragments.dbpedia.org/2016-04/en \
+  -q 'SELECT * { ?s ?p ?o. } LIMIT 100' --explain physical</pre>
+          </li>
+      </ul>
+      <span class="next">Learn more: <a href="https://comunica.dev/docs/query/advanced/explain/">https://comunica.dev/docs/query/advanced/explain/</a></span>
+    </section>
+    
+    <section id="configs" class="slide" inlist="" rel="schema:hasPart" resource="#configs">
+      <h2 property="schema:name">Alternative configurations</h2>
+      <h3>Different engines can be built by plugging in other components</h3>
+      <ul>
+          <li>
+          	  <h3><a href="https://github.com/comunica/comunica-feature-solid">Comunica SPARQL Solid</a></h3>
+              <span class="indent">Querying over Solid pods via authenticated requests</span>
+          </li>
+          <li>
+          	  <h3><a href="https://github.com/comunica/comunica-feature-link-traversal">Comunica SPARQL Link Traversal</a></h3>
+			  <span class="indent">Following links between documents</span>
+          </li>
+          <li>
+          	  <h3><a href="https://github.com/comunica/comunica-feature-reasoning">Comunica SPARQL Reasoning</a></h3>
+			  <span class="indent">Querying over implicit information via inference</span>
+          </li>
+      </ul>
+      <span class="next">Or create your own engine: <a href="https://comunica.dev/docs/modify/">https://comunica.dev/docs/modify/</a></span>
     </section>
     
     <section id="index-final" class="slide index" inlist="" rel="schema:hasPart" resource="#index-final">
       <ul>
         <li><a href="#index-fundamentals">Fundamentals</a></li>
 		<li><a href="#index-starting">Getting started</a></li>
-        <li><a href="#index-advanced">Advanced usage</a></li>
+        <li><a href="#index-advanced">Advanced topics</a></li>
       </ul>
     </section>
 	
     <section id="conclusion" class="slide" inlist="" rel="schema:hasPart" resource="#conclusion">
-      <h2 property="schema:name" class="big">TODO: Conclusion</h2>
+      <h2 property="schema:name">Comunica abstracts access<br \>to Knowledge Graphs</h2>
+      <ul>
+          <li>
+          	  <h3>Via declarative queries</h3>
+              <span class="indent">SPARQL, GraphQL, ...</span>
+          </li>
+          <li>
+          	  <h3>Runs anywhere</h3>
+			  <span class="indent">CLI, client-side (browsers), server-side (Node.js), ...</span>
+          </li>
+          <li>
+          	  <h3>Open</h3>
+			  <span class="indent">Anyone can use it and contribute</span>
+          </li>
+      </ul>
     </section>
 
     <footer>
