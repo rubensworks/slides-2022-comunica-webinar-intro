@@ -85,7 +85,7 @@
       <ul>
         <li><a href="#index-fundamentals">Fundamentals</a></li>
 		<li><a href="#index-starting">Getting started</a></li>
-        <li><a href="#index-advanced">Advanced usage</a></li>
+        <li><a href="#index-advanced">Advanced topics</a></li>
       </ul>
     </section>
     
@@ -93,7 +93,7 @@
       <ul>
         <li class="current"><a href="#index-fundamentals">Fundamentals</a></li>
 		<li><a href="#index-starting">Getting started</a></li>
-        <li><a href="#index-advanced">Advanced usage</a></li>
+        <li><a href="#index-advanced">Advanced topics</a></li>
       </ul>
     </section>
 	
@@ -181,7 +181,7 @@
       <ul>
         <li><a href="#index-fundamentals">Fundamentals</a></li>
 		<li class="current"><a href="#index-starting">Getting started</a></li>
-        <li><a href="#index-advanced">Advanced usage</a></li>
+        <li><a href="#index-advanced">Advanced topics</a></li>
       </ul>
     </section>
     
@@ -240,11 +240,11 @@
       <ul>
         <li><a href="#index-fundamentals">Fundamentals</a></li>
 		<li><a href="#index-starting">Getting started</a></li>
-        <li class="current"><a href="#index-advanced">Advanced usage</a></li>
+        <li class="current"><a href="#index-advanced">Advanced topics</a></li>
       </ul>
     </section>
     
-    <section id="advanced-context" class="slide" inlist="" rel="schema:hasPart" resource="#advanced-context">
+    <!--<section id="advanced-context" class="slide" inlist="" rel="schema:hasPart" resource="#advanced-context">
       <h2 property="schema:name">The Context Object</h2>
       <ul>
           <li>
@@ -264,13 +264,66 @@
   httpAuth: 'username:password',
 });</pre>
       <span class="next">Learn more: <a href="https://comunica.dev/docs/query/advanced/context/">https://comunica.dev/docs/query/advanced/context/</a></span>
+    </section>-->
+        
+    <section id="advanced-overview" class="slide" inlist="" rel="schema:hasPart" resource="#advanced-overview">
+      <h2 property="schema:name">Advanced topics</h2>
+      <ul>
+          <li>
+          	  <h3>Architecture</h3>
+			  <span class="indent">Actors, mediators, buses</span>
+          </li>
+          <li>
+          	  <h3>SPARQL Algebra</h3>
+			  <span class="indent">Used for query evaluation and explaining</span>
+          </li>
+          <li>
+          	  <h3>Alternative configurations</h3>
+			  <span class="indent">Different ways of executing queries</span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="actor-model" class="slide" inlist="" rel="schema:hasPart" resource="#actor-model">
+      <h2 property="schema:name">Modularity using the <em>actor</em> model</h2>
+      <p class="indent">Logic is separated into different <em>actors</em></p>
+      <p class="indent">Each actor <em>independently</em> performs a <em>specific task</em>.</p>
+      <ul class="indent" style="font-style: italic">
+        <li>JSON-LD parsing actor</li>
+        <li>Turtle parsing actor</li>
+        <li>SPARQL union actor A</li>
+        <li>SPARQL union actor B</li>
+      </ul>
+    </section>
+
+    <section id="actor-mediator-bus" class="slide" inlist="" rel="schema:hasPart" resource="#actor-mediator-bus">
+      <h2 property="schema:name">Actors can be <em>combined</em> for solving more <em>complex tasks</em></h2>
+      <p class="indent">Actors are grouped in task-specific <em>buses</em>.</p>
+      <p class="indent"><em>Mediators</em> are responsible for selecting an actor to solve a certain task.</p>
+      <p class="next center">
+        <img src="img/actor-mediator-bus.svg" style="max-width:100%">
+      </p>
+    </section>
+
+    <section id="actor-mediator-bus-example" class="slide">
+      <h2 property="schema:name">Example: Parse as fast as possible</h2>
+      <p class="center">
+        <img src="img/run-test-phases.svg" style="max-width:100%">
+      </p>
+    </section>
+
+    <section id="modules" class="slide" inlist="" rel="schema:hasPart" resource="#modules">
+      <h2 property="schema:name">Modules are wired together through semantic configuration files</h2>
+      <p class="indent"><a href="https://componentsjs.readthedocs.io/en/latest/">Components.js</a>: a semantic dependency injection framework.</p>
+      <p class="indent">Configuration files declare and parameterize actors, mediators and buses.</p>
+      <p class="indent">Links all the building blocks together, without having to do this in the code!</p>
     </section>
     
     <section id="index-final" class="slide index" inlist="" rel="schema:hasPart" resource="#index-final">
       <ul>
         <li><a href="#index-fundamentals">Fundamentals</a></li>
 		<li><a href="#index-starting">Getting started</a></li>
-        <li><a href="#index-advanced">Advanced usage</a></li>
+        <li><a href="#index-advanced">Advanced topics</a></li>
       </ul>
     </section>
 	
